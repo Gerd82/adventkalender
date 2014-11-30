@@ -19,6 +19,8 @@ server 'brgerd.homenet.org', user: 'deployer',  port: 22020, roles: %w{web app d
 
 set :nginx_server_name, 'brgerd.homenet.org'
 
+set :unicorn_config, "#{current_path}/config/unicorn.rb"
+set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
 
 # Custom SSH Options
 # ==================
