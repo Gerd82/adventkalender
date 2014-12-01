@@ -36,6 +36,11 @@ set :scm, :git
 
 namespace :deploy do
 
+  desc "Symlink shared configs and folders on each release."
+  after   :update_code, :symlink_shared do
+    run "ln -nfs #{shared_path}/system/config/database.yml #{release_path}/config/database.yml"
+  end
+
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
