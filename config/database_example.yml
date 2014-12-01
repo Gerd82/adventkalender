@@ -13,9 +13,10 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
+  username: deployer
   password:
-  socket: /tmp/mysql.sock
+  host: localhost
+  # socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
@@ -51,4 +52,4 @@ production:
   <<: *default
   database: adventkalender_production
   username: adventkalender
-  password: <%= ENV['ADVENTKALENDER_DATABASE_PASSWORD'] %>
+  password:
