@@ -16,7 +16,7 @@ set :repo_url,    'https://github.com/Gerd82/adventkalender.git'
 
 set :deploy_user, 'deployer'
 
-# set :stage,       :production
+set :stage,       :production
 set :rails_env,   :production
 
 set :rvm_path, "$HOME/.rvm"
@@ -84,20 +84,22 @@ set :keep_releases, 5
 
 namespace :deploy do
   # make sure we're deploying what we think we're deploying
-  before :deploy, "deploy:check_revision"
+  # before :deploy, "deploy:check_revision"
+
   # only allow a deploy with passing tests to deployed
-  before :deploy, "deploy:run_tests"
+  # before :deploy, "deploy:run_tests"
+
   # compile assets locally then rsync
   # after 'deploy:symlink:shared', 'deploy:compile_assets_locally'
   after :finishing, 'deploy:cleanup'
 
   # remove the default nginx configuration as it will tend
   # to conflict with our configs.
-  before 'deploy:setup_config', 'nginx:remove_default_vhost'
+  # before :setup_config, 'nginx:remove_default_vhost'
 
   # reload nginx to it will pick up any modified vhosts from
   # setup_config
-  after 'deploy:setup_config', 'nginx:reload'
+  # after :setup_config, 'nginx:reload'
 
   # As of Capistrano 3.1, the `deploy:restart` task is not called
   # automatically.
@@ -111,5 +113,4 @@ namespace :deploy do
       # end
     end
   end
-
 end
