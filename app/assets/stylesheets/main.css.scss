@@ -6,7 +6,28 @@
 div.title{
   color:                                          yellow;
   font-weight:                                    bold;
-  font-size:                                      40;
+  font-size:                                      40px;
   text-align:                                     center;
   top:                                            30px;
+}
+
+div.fenster{
+  &.pic{
+    background:                                   image-url('Fenster01_244x231.gif');
+    background-size:                              cover;
+  }
+  float:                                          left;
+  height:                                         8em;
+  width:                                          8em;
+
+  div.number{
+    bottom:                                       50%;
+    color:                                        rgba(255, 63, 0, 1);
+    font-size:                                    50px;
+    font-weight:                                  bold;
+    text-align:                                   center;
+    top:                                          50%;
+    padding-bottom:                               50%;
+    padding-top:                                  50%;
+  }
 }
