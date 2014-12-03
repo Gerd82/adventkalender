@@ -16,6 +16,9 @@ div.fenster{
     background:                                   image-url('Fenster01_244x231.gif');
     background-size:                              cover;
   }
+  &.nopic{
+    border:                                       1px solid;
+  }
   float:                                          left;
   height:                                         8em;
   width:                                          8em;
