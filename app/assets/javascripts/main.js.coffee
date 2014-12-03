@@ -14,18 +14,28 @@ shuffle = (a) ->
 
 jQuery ->
   iDay = (new Date).getDay()
-  for i in shuffle([1..35])
+  for i in shuffle([1..28])
     $('.all_fenster').append("<div class='fenster'></div>")
 
     if i >= 1 and i <= 24
-      cFenster = if iDay >= i then 'pic' else 'nopic'
-      # alert cFenster
+      console.log "#{ iDay } > #{ i }"
+      cFenster  = if iDay > i
+                    'pic click'
+                  else if iDay == i
+                    'nopic today click'
+                  else
+                    'nopic'
       $('.all_fenster .fenster:last()').addClass( cFenster ).append( "<div class='number'>#{ i }</div>")
 
-  iSpaceWidth   = ($(window).width() - 8 * $('.fenster').width()) / 16
+  iSpaceWidth   = Math.ceil( ($(window).width() - 8 * $('.fenster').outerWidth(false)) / 16 )
+  iSpaceWidth   = 20 if iSpaceWidth < 20
   $('.fenster').css('margin-left', iSpaceWidth)
   $('.fenster').css('margin-right', iSpaceWidth)
-  iSpaceHeight  = (($(window).height() - 160 - 7 * $('.fenster').height()) / 12)
+
+  iSpaceHeight  = Math.ceil( (($(window).height() - 160 - 7 * $('.fenster').outerHeight(false)) / 12) )
+  iSpaceHeight  = 20 if iSpaceHeight < 20
   $('.fenster').css('margin-top', iSpaceHeight)
   $('.fenster').css('margin-bottom', iSpaceHeight)
-  console.log ($(window).width() - 8 * $('.fenster').width()) / 8
+
+  $('.click').click ->
+    $(@).removeClass('nopic').addClass('pic') if ($(@).hasClass('nopic'))
