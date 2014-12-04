@@ -1,3 +1,12 @@
+<%= iTag    = Date.today.day
+    sZusatz = case iTag
+              when 4 then 'Hl. Barbara'
+              when 5 then 'Krampustag'
+              when 6 then 'Hl. Nikolaus'
+              else nil
+              end
+%>
+
 <div id="overlay">
   <div id="window">
     <div class="button">
@@ -10,7 +19,12 @@
 </div>
 
 <div class='title'>
-  <%= Date.today.day %>. Advent
+  <%= iTag %>. Advent<%=  if sZusatz
+                            content_tag :div, ' - ' + sZusatz, class: :zusatz
+                          else
+                            ''
+                          end
+                      %>
 </div>
 
 <div class='all_fenster' data-url='<%= url_for(action: :window, id: "_nr_") %>'>
