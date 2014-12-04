@@ -25,7 +25,9 @@ jQuery ->
                     'nopic today click'
                   else
                     'nopic'
-      $('.all_fenster .fenster:last()').addClass( cFenster ).append( "<div class='number'>#{ i }</div>")
+      $('.all_fenster .fenster:last()').addClass( cFenster ).
+                                        data('number', i).
+                                        append( "<div class='number'>#{ i }</div>")
 
   iSpaceWidth   = Math.ceil( ($(window).width() - 8 * $('.fenster').outerWidth(false)) / 16 )
   iSpaceWidth   = 20 if iSpaceWidth < 20
@@ -39,3 +41,4 @@ jQuery ->
 
   $('.click').click ->
     $(@).removeClass('nopic').addClass('pic') if ($(@).hasClass('nopic'))
+    iNumber = $(@).data('number')

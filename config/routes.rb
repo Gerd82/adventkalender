@@ -55,5 +55,11 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  root to: 'main#index'
+  resources :adventkalender do
+    member do
+      get :windows
+    end
+  end
+
+  root to: 'adventkalender#index'
 end
