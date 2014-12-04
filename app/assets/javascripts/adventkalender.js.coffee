@@ -18,7 +18,6 @@ jQuery ->
     $('.all_fenster').append("<div class='fenster'></div>")
 
     if i >= 1 and i <= 24
-      console.log "#{ iDay } > #{ i }"
       cFenster  = if iDay > i
                     'pic click'
                   else if iDay == i
@@ -30,15 +29,30 @@ jQuery ->
                                         append( "<div class='number'>#{ i }</div>")
 
   iSpaceWidth   = Math.ceil( ($(window).width() - 8 * $('.fenster').outerWidth(false)) / 16 )
-  iSpaceWidth   = 20 if iSpaceWidth < 20
+  iSpaceWidth   = 5 if iSpaceWidth < 5
   $('.fenster').css('margin-left', iSpaceWidth)
   $('.fenster').css('margin-right', iSpaceWidth)
 
-  iSpaceHeight  = Math.ceil( (($(window).height() - 160 - 7 * $('.fenster').outerHeight(false)) / 12) )
-  iSpaceHeight  = 20 if iSpaceHeight < 20
+  console.log $('.all_fenster').position().top
+  iSpaceHeight  = Math.ceil( (($(window).height() - $('.all_fenster').position().top - 5 * $('.fenster').outerHeight(false)) / 10) )
+  iSpaceHeight  = 5 if iSpaceHeight < 5
   $('.fenster').css('margin-top', iSpaceHeight)
   $('.fenster').css('margin-bottom', iSpaceHeight)
 
   $('.click').click ->
     $(@).removeClass('nopic').addClass('pic') if ($(@).hasClass('nopic'))
     iNumber = $(@).data('number')
+    sUrl    = $('.all_fenster:first()').data('url').replace '_nr_', iNumber
+
+    $.ajax
+            url:    sUrl,
+            method: "get",
+            error:  (data, ajaxOptions, thrownError) ->
+              console.log data
+              console.log ajaxOptions
+              console.log thrownError
+              console.log 'Error'
+
+            success:  (data) ->
+              $('#overlay #content').html( data )
+              $('#overlay').show()

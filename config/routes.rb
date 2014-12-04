@@ -57,7 +57,7 @@ Rails.application.routes.draw do
   #   end
   resources :adventkalender do
     member do
-      get :windows
+      get :window
     end
   end
 

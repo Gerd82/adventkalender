@@ -32,7 +32,7 @@ div#overlay {
 
     .button {
       .close {
-        background-image:     image-url("Close-deactivated.png");
+        background-image:     image-url("close-deactivated.png");
         background-repeat:    no-repeat;
         background-position:  center;
         height:               24px;
@@ -43,7 +43,7 @@ div#overlay {
         z-index:              1005;
       }
       .close:hover {
-        background-image:     image-url("Close.png");
+        background-image:     image-url("close.png");
       }
     }
 
