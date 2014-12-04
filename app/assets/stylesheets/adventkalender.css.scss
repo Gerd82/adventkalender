@@ -73,34 +73,3 @@ div.zusatz_window{
   margin-top:                                     30px;
   font-size:                                      0.9em;
 }
-
-/* Overlay PopUp */
-.overlay_background{
-  display:                none;
-  position:               fixed;
-  top:                    0%;
-  left:                   0%;
-  width:                  100%;
-  height:                 100%;
-  background-color:       black;
-  z-index:                1001;
-  -moz-opacity:           0.8;
-  opacity:                .80;
-  filter:                 alpha(opacity=80);
-}
-
-.overlay_content {
-  display:                none;
-  position:               fixed;
-  top:                    20%;
-  left:                   20%;
-  width:                  60%;
-  max-height:             60%;
-  height:                 60%;
-  padding:                30px;
-  z-index:                1002;
-
-  background:             none repeat scroll 0 0 #FFFFFF;
-  border:                 5px solid #C6C6C6;
-  border-radius:          10px 10px 10px 10px;
-}

@@ -48,31 +48,9 @@ div#overlay {
     }
 
     #content {
-      #item_div {
-        margin:               0px 10px 10px 10px;
-        top:                  51px;
-        #item_div_header {
-          border-top:         0px;
-        }
-      }
-
-      #item_edit_div {
-        position:             absolute;
-        left:                 10px;
-        top:                  35px;
-        right:                10px;
-        bottom:               10px;
-        overflow:             auto;
-        border-top:           1px solid #C6C6C6;
-      }
-
-      #tabbar {
-        border-bottom:        1px solid #C6C6C6;
-        border-top:           1px solid #C6C6C6;
-      }
-      #toolbar {
-        padding:              5px;
-      }
+      margin-top:             14px;
+      overflow-y:             scroll;
+      height:                 100%;
     }
   }
 }
