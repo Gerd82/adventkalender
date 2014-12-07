@@ -13,7 +13,7 @@ shuffle = (a) ->
   a
 
 jQuery ->
-  iDay = (new Date).getDay()
+  iDay = (new Date).getDate()
   for i in shuffle([1..28])
     $('.all_fenster').append("<div class='fenster'></div>")
 
