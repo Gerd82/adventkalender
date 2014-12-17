@@ -1,13 +1,16 @@
 <%  iTag    = Date.today.day
     sZusatz = case iTag
-              when 4  then 'Hl. Barbara'
-              when 5  then 'Krampustag'
-              when 6  then 'Hl. Nikolaus'
-              when 7  then '2.Advent'
-              when 8  then 'Maria Empfängnis'
-              when 14 then '3.Advent'
-              when 21 then '4.Advent - Jetzt ist es nicht mehr lang'
-              when 24 then 'Heilig Abend - Frohe Weihnachten'
+              when 4      then 'Hl. Barbara'
+              when 5      then 'Krampustag'
+              when 6      then 'Hl. Nikolaus'
+              when 7      then '2.Advent'
+              when 8      then 'Maria Empfängnis'
+              when 14     then '3.Advent'
+              when 15..20 then "Nur noch #{ 24 - iTag } Tage bis Weihnachten"
+              when 21     then '4.Advent - Jetzt ist es nicht mehr lang'
+              when 22     then "Nur noch #{ 24 - iTag } Tage bis Weihnachten"
+              when 23     then 'Nur noch 1 Tag bis Weihnachten'
+              when 24     then 'Heilig Abend - Frohe Weihnachten'
               else nil
               end
 %>
